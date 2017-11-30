@@ -92,10 +92,7 @@ public class DialogueController : MonoBehaviour {
         rotation = playerController.transform.rotation;
 
         clipboard.transform.position = ray.GetPoint(distance);
-        clipboard.transform.rotation = Quaternion.Inverse(rotation);
-        Vector3 eulerAngles = rotation.eulerAngles + (Camera.main.transform.rotation.eulerAngles);
-        eulerAngles = new Vector3(-1 * eulerAngles.x, eulerAngles.y - 90, eulerAngles.z);
-        clipboard.transform.rotation = Quaternion.Euler(eulerAngles);
+        //clipboard.transform.LookAt(transform);
         exit1 = true;
         signup = true;
 
