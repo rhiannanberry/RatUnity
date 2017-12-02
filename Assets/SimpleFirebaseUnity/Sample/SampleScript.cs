@@ -119,7 +119,7 @@ public class SampleScript : MonoBehaviour
 		// The current provided implementation not yet including Auth Token Generation
 		// If you're using this sample Firebase End, 
 		// there's a possibility that your request conflicts with other simple-firebase-c# user's request
-		Firebase firebase = Firebase.CreateNew ("simple-firebase-csharp.firebaseio.com", "UPaocwJVKvhnKL1orrf5XwWHMz3HUzckgCnGp6id");
+		Firebase firebase = Firebase.CreateNew ("ratapp-af7cf.firebaseio.com", "AIzaSyBKLWvSg3WkFgz_ZbVX24Vu49y672guSvo");
 
 		// Init callbacks
 		firebase.OnGetSuccess += GetOKHandler;

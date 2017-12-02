@@ -64,7 +64,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material_004
-    second: {fileID: 2100000, guid: 363ec0ef68030ca459ee73056b57d8d9, type: 2}
+    second: {fileID: 2100000, guid: 21dd5b57e7cef124199e3c828ad541a3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -89,7 +89,7 @@ ModelImporter:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

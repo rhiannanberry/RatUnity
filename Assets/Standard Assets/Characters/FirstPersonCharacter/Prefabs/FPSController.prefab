@@ -353,6 +353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pattyTransform: {fileID: 0}
   range: 2
+  pattySpace: {fileID: 0}
   dialogueController: {fileID: 0}
 --- !u!114 &114798873276094492
 MonoBehaviour:

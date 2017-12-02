@@ -18,8 +18,13 @@ public class DialogueController : MonoBehaviour {
     bool exit1 = false;
     bool signup = false;
 
+
+    //add an exit button to all dialogue options
     string[] qIntro = {"Oh, hello! Can you sign in for me?", "Sure!", "I've never been here before..." };
     string[] qIntroFail = { "Uwah, I'm so sorry :( Would you like to sign up to use our services?", "Hmmmm... Ok!", "Nah." };
+    string[] qOption = { "So what can I help you with?", "I'd like to see some rats.", "I'd like to report a sighting." };
+    //string[] qOptionView = { "Lovely! "}; option view will be a dialogue and start and end date picker
+
     string dFail = "U-Uh. O-Okay, have a nice day...";
     string dPass = "Great! Fill out this form, please!";
 
