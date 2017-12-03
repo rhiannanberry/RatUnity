@@ -6,6 +6,8 @@ public static class MapsUtility {
     static float GOOGLEOFFSET = 268435456f;
     static float GOOGLEOFFSET_RADIUS = 85445659.44705395f;//GOOGLEOFFSET / Mathf.PI;
     static float MATHPI_180 = Mathf.PI / 180f;
+    static float CENTERLON = -95.53710968749999f;
+    static float CENTERLAT = 37.90545880594998f;
 
     static private float preLonToX1 = GOOGLEOFFSET_RADIUS * (Mathf.PI / 180f);
 
@@ -28,7 +30,8 @@ public static class MapsUtility {
     {
         return (Mathf.PI / 2f - 2f * Mathf.Atan(Mathf.Exp((Mathf.Round(y) - GOOGLEOFFSET) / GOOGLEOFFSET_RADIUS))) * 180f / Mathf.PI;
     }
-
+    //zoom is 5
+    //center 37.90545880594998%2C-95.53710968749999
     public static float adjustLonByPixels(float lon, int delta, int zoom)
     {
         return XToLon(LonToX(lon) + (delta << (21 - zoom)));

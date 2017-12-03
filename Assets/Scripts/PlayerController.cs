@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour {
         Debug.Log(check.error);
 
         //Firebase firebase = Firebase.CreateNew("ratapp-af7cf.firebaseio.com", "AIzaSyBKLWvSg3WkFgz_ZbVX24Vu49y672guSvo");
+        //GameObject.Find("Marker").
+        Debug.Log(MapsUtility.LatToY(40.7399833f));
         pattySpace.GetComponent<CanvasGroup>().alpha = 0;
     }
 
