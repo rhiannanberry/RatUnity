@@ -38,7 +38,8 @@ public class CameraPointer : MonoBehaviour {
                 } else if (hit.transform.name == "OuterEButton")
                 {
                     GameObject.Find("Door").GetComponent<ElevatorDoors>().OpenDoors();
-                }
+                } else if (hit.transform.name == "PATTY" && hit.distance <= 0.5f) { 
+}
             }
         }
 

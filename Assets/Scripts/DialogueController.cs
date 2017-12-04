@@ -7,11 +7,9 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class DialogueController : MonoBehaviour {
 
-    public float distance = 1f;
+    public float distance = 0.5f;
 
     GameObject dialoguePanel, questionPanel, playerController, clipboard;
-    Vector3 forward;
-    Quaternion rotation;
     Text dialogue, question, answer1, answer2;
     Button b1, b2;
     bool exit = false;
@@ -52,7 +50,7 @@ public class DialogueController : MonoBehaviour {
     }
 
     void Update() {
-        if (exit && CrossPlatformInputManager.GetButtonDown("Jump")) {
+        if (exit && Input.GetMouseButtonDown(0)) {
             questionPanel.SetActive(false);
             dialoguePanel.SetActive(false);
 
@@ -91,12 +89,7 @@ public class DialogueController : MonoBehaviour {
     private void SignUpPass() {
         RemoveButtonListeners();
         SetDialogue(dPass);
-        Ray ray = Camera.main.GetComponent<CameraPointer>().getRay();
-
-        forward = playerController.transform.forward;
-        rotation = playerController.transform.rotation;
-
-        clipboard.transform.position = ray.GetPoint(distance);
+        
         //clipboard.transform.LookAt(transform);
         exit1 = true;
         signup = true;
@@ -127,4 +120,5 @@ public class DialogueController : MonoBehaviour {
         this.answer1.text = pack[1];
         this.answer2.text = pack[2];
     }
+    
 }

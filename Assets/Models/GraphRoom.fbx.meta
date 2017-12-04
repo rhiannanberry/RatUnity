@@ -1,70 +1,23 @@
 fileFormatVersion: 2
-guid: 35b6912aca9b7e74997e3d71549a9974
-timeCreated: 1512353844
+guid: 6604de878a5b52f4ab561f61f3918b64
+timeCreated: 1512398923
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Elevator
-    100004: Plane
-    100006: EButton1
-    100008: EButton2
-    100010: EButton3
-    100012: ElevatorPanel
-    100014: Desk
-    100016: Stool
+    100002: Plane
+    100004: Rope
     400000: //RootNode
-    400002: Elevator
-    400004: Plane
-    400006: EButton1
-    400008: EButton2
-    400010: EButton3
-    400012: ElevatorPanel
-    400014: Desk
-    400016: Stool
-    2300000: //RootNode
-    2300002: Elevator
-    2300004: Plane
-    2300006: EButton1
-    2300008: EButton2
-    2300010: EButton3
-    2300012: ElevatorPanel
-    2300014: Desk
-    2300016: Stool
-    3300000: //RootNode
-    3300002: Elevator
-    3300004: Plane
-    3300006: EButton1
-    3300008: EButton2
-    3300010: EButton3
-    3300012: ElevatorPanel
-    3300014: Desk
-    3300016: Stool
+    400002: Plane
+    400004: Rope
+    2300000: Plane
+    2300002: Rope
+    3300000: Plane
+    3300002: Rope
     4300000: Plane
-    4300002: Elevator
-    4300004: EButton3
-    4300006: EButton2
-    4300008: EButton1
-    4300010: ElevatorPanel
-    4300012: Desk
-    4300014: Stool
+    4300002: Rope
   externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Elevator
-    second: {fileID: 2100000, guid: ccfd56695b2eeb44f8218799340a1e45, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: 8436207762cb7174cbc1cf2bbf4aa767, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: dadd08abe5b13de40a8d22d0704c1534, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -73,8 +26,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Stool
-    second: {fileID: 2100000, guid: 3de31f1dbfe96e541b45b3094eba78fe, type: 2}
+      name: Rope
+    second: {fileID: 2100000, guid: 3db5d520e0add944b95164562bb1b497, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
