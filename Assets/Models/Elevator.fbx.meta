@@ -1,44 +1,62 @@
 fileFormatVersion: 2
-guid: 35b6912aca9b7e74997e3d71549a9974
-timeCreated: 1512353844
+guid: abc9219bf0cc9864e85fc662fe3543b8
+timeCreated: 1512373060
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Elevator
-    100004: Plane
-    100006: EButton1
-    100008: EButton2
-    100010: EButton3
-    100012: ElevatorPanel
-    400000: //RootNode
-    400002: Elevator
-    400004: Plane
-    400006: EButton1
-    400008: EButton2
-    400010: EButton3
-    400012: ElevatorPanel
-    2300000: //RootNode
-    2300002: Elevator
-    2300004: Plane
-    2300006: EButton1
-    2300008: EButton2
-    2300010: EButton3
-    2300012: ElevatorPanel
-    3300000: //RootNode
-    3300002: Elevator
-    3300004: Plane
-    3300006: EButton1
-    3300008: EButton2
-    3300010: EButton3
-    3300012: ElevatorPanel
-    4300000: Plane
-    4300002: Elevator
-    4300004: EButton3
-    4300006: EButton2
-    4300008: EButton1
-    4300010: ElevatorPanel
+    100000: EButton1
+    100002: EButton2
+    100004: EButton3
+    100006: //RootNode
+    100008: Elevator
+    100010: ElevatorPanel
+    100012: LeftDoor
+    100014: RightDoor
+    100016: OuterEButton
+    100018: OuterPanel
+    100020: Door
+    400000: EButton1
+    400002: EButton2
+    400004: EButton3
+    400006: //RootNode
+    400008: Elevator
+    400010: ElevatorPanel
+    400012: LeftDoor
+    400014: RightDoor
+    400016: OuterEButton
+    400018: OuterPanel
+    400020: Door
+    2300000: EButton1
+    2300002: EButton2
+    2300004: EButton3
+    2300006: Elevator
+    2300008: ElevatorPanel
+    2300010: LeftDoor
+    2300012: RightDoor
+    2300014: OuterEButton
+    2300016: OuterPanel
+    2300018: Door
+    3300000: EButton1
+    3300002: EButton2
+    3300004: EButton3
+    3300006: Elevator
+    3300008: ElevatorPanel
+    3300010: LeftDoor
+    3300012: RightDoor
+    3300014: OuterEButton
+    3300016: OuterPanel
+    3300018: Door
+    4300000: EButton3
+    4300002: EButton2
+    4300004: EButton1
+    4300006: ElevatorPanel
+    4300008: Elevator
+    4300010: RightDoor
+    4300012: LeftDoor
+    4300014: OuterEButton
+    4300016: OuterPanel
+    4300018: Door
   externalObjects:
   - first:
       type: UnityEngine:Material

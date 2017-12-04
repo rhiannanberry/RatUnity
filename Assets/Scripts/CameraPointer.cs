@@ -18,9 +18,31 @@ public class CameraPointer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        ray = cam.ScreenPointToRay(reticlePos);
-        RaycastHit hit;
-	}
+        if (Input.GetMouseButtonDown(0))
+        {
+            ray = cam.ScreenPointToRay(reticlePos);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.transform.name == "EButton1") //graph room
+                {
+                    GameObject.Find("Door").GetComponent<ElevatorDoors>().MoveRooms(1);
+                }
+                else if (hit.transform.name == "EButton2") //map room
+                {
+                    GameObject.Find("Door").GetComponent<ElevatorDoors>().MoveRooms(2);
+                }
+                else if (hit.transform.name == "EButton3") //ground waiting room
+                {
+                    GameObject.Find("Door").GetComponent<ElevatorDoors>().MoveRooms(3);
+                } else if (hit.transform.name == "OuterEButton")
+                {
+                    GameObject.Find("Door").GetComponent<ElevatorDoors>().OpenDoors();
+                }
+            }
+        }
+
+    }
 
     public Ray getRay() {
         return ray;
