@@ -15,15 +15,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject pattySpace;
     public GameObject dialogueController;
 	// Use this for initialization
-	IEnumerator Start () {
-        WWW check = new WWW("https://ratapp-af7cf.firebaseio.com/rat+sightings.json?orderBy=%22Created+Date%22&limitToFirst=3");
-        yield return check;
-        Debug.Log(check.text);
-        Debug.Log(check.error);
-
-        //Firebase firebase = Firebase.CreateNew("ratapp-af7cf.firebaseio.com", "AIzaSyBKLWvSg3WkFgz_ZbVX24Vu49y672guSvo");
-        //GameObject.Find("Marker").
-        Debug.Log(MapsUtility.LatToY(40.7399833f));
+	void Start () {
         pattySpace.GetComponent<CanvasGroup>().alpha = 0;
     }
 
@@ -49,7 +41,7 @@ public class PlayerController : MonoBehaviour {
             pattySpace.GetComponent<CanvasGroup>().alpha = 0;
             helpOn = false;
         }
-	}
+    }
 
     private bool CheckDistance(Transform other) {
         return Vector3.Distance(transform.position, other.position) < range;

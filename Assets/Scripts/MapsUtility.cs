@@ -8,37 +8,44 @@ public static class MapsUtility {
     static float MATHPI_180 = Mathf.PI / 180f;
     static float CENTERLON = -95.53710968749999f;
     static float CENTERLAT = 37.90545880594998f;
+    static float SCALEX = 49.2f;
+    static float SCALEY = 16;
 
-    static private float preLonToX1 = GOOGLEOFFSET_RADIUS * (Mathf.PI / 180f);
+    //static float NWLON = -112.41211f; //left
+    //static float SELON = -78.66211f; //right
+    
+    static float WIDTH = 2048;
+    //nw=43.799091%2C-112.41211
+    //se=31.499226%2C-78.66211
+    //31.499226
 
-    public static int LonToX(float lon)
+    public static float LonToWorldPos(float lon)
     {
-        return ((int)Mathf.Round(GOOGLEOFFSET + preLonToX1 * lon));
+        return 128 * (1 + DegToRad(lon) / Mathf.PI);
     }
 
-    public static int LatToY(float lat)
+    public static float LatToWorldPos(float lat)
     {
-        return (int)Mathf.Round(GOOGLEOFFSET - GOOGLEOFFSET_RADIUS * Mathf.Log((1f + Mathf.Sin(lat * MATHPI_180)) / (1f - Mathf.Sin(lat * MATHPI_180))) / 2f);
+        float param = DegToRad(lat) / 2 + Mathf.PI / 4;
+        return 128 * (1 - Mathf.Log(Mathf.Tan(param)));
     }
 
-    public static float XToLon(float x)
+    private static float DegToRad(float deg)
     {
-        return ((Mathf.Round(x) - GOOGLEOFFSET) / GOOGLEOFFSET_RADIUS) * 180f / Mathf.PI;
+        return (Mathf.PI / 180) * deg;
     }
 
-    public static float YToLat(float y)
+    public static float GetMarkerPositionX(float lon)
     {
-        return (Mathf.PI / 2f - 2f * Mathf.Atan(Mathf.Exp((Mathf.Round(y) - GOOGLEOFFSET) / GOOGLEOFFSET_RADIUS))) * 180f / Mathf.PI;
-    }
-    //zoom is 5
-    //center 37.90545880594998%2C-95.53710968749999
-    public static float adjustLonByPixels(float lon, int delta, int zoom)
-    {
-        return XToLon(LonToX(lon) + (delta << (21 - zoom)));
+        float worldCenterX = LonToWorldPos(CENTERLON);
+        float markerCenterX = LonToWorldPos(lon);
+        return (markerCenterX - worldCenterX) * SCALEX;
     }
 
-    public static float adjustLatByPixels(float lat, int delta, int zoom)
+    public static float GetMarkerPositionY(float lat)
     {
-        return YToLat(LatToY(lat) + (delta << (21 - zoom)));
+        float worldCenterY = LatToWorldPos(CENTERLAT);
+        float markerCenterY = LatToWorldPos(lat);
+        return -1*(markerCenterY - worldCenterY) * SCALEY;
     }
 }
