@@ -6,7 +6,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class DialogueController : MonoBehaviour {
-    GameObject dialoguePanel, questionPanel, q4Panel, playerController, clipboard;
+    GameObject dialoguePanel, questionPanel, q4Panel, playerController, clipboard, dateRangePanel;
     Text dialogue, question, answer1, answer2, q4, a1, a2, a3, a4;
     Animator animator;
     Button b1, b2, qb1, qb2, qb3, qb4;
@@ -17,6 +17,7 @@ public class DialogueController : MonoBehaviour {
         DialogueUtility.dialoguePanel = GameObject.Find("PattyDialogue");
         DialogueUtility.q4Panel = GameObject.Find("PattyDialogue4");
         DialogueUtility.questionPanel = GameObject.Find("PattyDialogueAnswer");
+        DialogueUtility.dateRangePanel = GameObject.Find("RangePanel");
 
         DialogueUtility.clipboard = GameObject.Find("Clipboard");
 
@@ -47,6 +48,7 @@ public class DialogueController : MonoBehaviour {
         DialogueUtility.a3 = GameObject.Find("TextA3").GetComponent<Text>();
         DialogueUtility.a4 = GameObject.Find("TextA4").GetComponent<Text>();
 
+        DialogueUtility.dateRangePanel.SetActive(false);
         DialogueUtility.questionPanel.SetActive(false);
         DialogueUtility.dialoguePanel.SetActive(false);
         DialogueUtility.q4Panel.SetActive(false);

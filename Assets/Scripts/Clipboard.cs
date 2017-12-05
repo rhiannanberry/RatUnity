@@ -58,9 +58,6 @@ public class Clipboard : MonoBehaviour {
         } else if (choice == 2)
         {
             RatSightingPanel.SetActive(true);
-        } else
-        {
-            //date range panel
         }
     }
 }

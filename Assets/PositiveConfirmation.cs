@@ -7,6 +7,7 @@ public class PositiveConfirmation : StateMachineBehaviour {
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         DialogueUtility.PutDownClipboard();
+        DialogueUtility.signedIn = true;
         DialogueUtility.SetDialogue("Lovely<3.");
     }
 

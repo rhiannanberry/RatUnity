@@ -72,7 +72,13 @@ public class CameraPointer : MonoBehaviour {
                             Cursor.visible = true;
 
                             dialogueController.SetActive(true);
-                            animator.SetTrigger("Start");
+                            if (DialogueUtility.signedIn)
+                            {
+                                animator.SetTrigger("StartSigned");
+                            } else
+                            {
+                                animator.SetTrigger("Start");
+                            }
                             //inDialogue = true;
                         }
                         break;

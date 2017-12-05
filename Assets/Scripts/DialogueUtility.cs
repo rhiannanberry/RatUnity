@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
+using UI.Dates;
 
 public static class DialogueUtility {
-    public static GameObject dialoguePanel, questionPanel, playerController, clipboard, dialogueController, q4Panel;
+    public static GameObject dialoguePanel, questionPanel, playerController, clipboard, dialogueController, q4Panel, dateRangePanel;
     public static Text dialogue, question, answer1, answer2, q4, a1, a2, a3, a4;
     public static Button b1, b2, qb1, qb2, qb3, qb4;
+
+    public static bool signedIn = false;
+    public static UI.Dates.SerializableDate fromDate, toDate;
 
 
     public static void SetDialogue(string[] pack)
