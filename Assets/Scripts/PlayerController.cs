@@ -25,25 +25,6 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (CheckDistance(pattyTransform) && !inDialogue) {
-            if (!helpOn) {
-                pattySpace.GetComponent<CanvasGroup>().alpha = 1;
-                helpOn = true;
-            }
-            if (Input.GetMouseButtonDown(0)) {
-                gameObject.GetComponent<FirstPersonController>().enabled = false;
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                reticle.SetActive(false);
-                //spacePattyText.SetActive(false);
-                dialogueController.SetActive(true);
-                dialogueController.GetComponent<DialogueController>().TriggerIntro();
-                inDialogue = true;
-            }
-        } else if (helpOn) {
-            pattySpace.GetComponent<CanvasGroup>().alpha = 0;
-            helpOn = false;
-        }
     }
 
     private bool CheckDistance(Transform other) {

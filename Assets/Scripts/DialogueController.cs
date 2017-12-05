@@ -6,119 +6,83 @@ using UnityStandardAssets.Characters.FirstPerson;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class DialogueController : MonoBehaviour {
-
-    public float distance = 0.5f;
-
-    GameObject dialoguePanel, questionPanel, playerController, clipboard;
-    Text dialogue, question, answer1, answer2;
-    Button b1, b2;
-    bool exit = false;
-    bool exit1 = false;
-    bool signup = false;
-
-
-    //add an exit button to all dialogue options
-    string[] qIntro = {"Oh, hello! Can you sign in for me?", "Sure!", "I've never been here before..." };
-    string[] qIntroFail = { "Uwah, I'm so sorry :( Would you like to sign up to use our services?", "Hmmmm... Ok!", "Nah." };
-    string[] qOption = { "So what can I help you with?", "I'd like to see some rats.", "I'd like to report a sighting." };
-    //string[] qOptionView = { "Lovely! "}; option view will be a dialogue and start and end date picker
-
-    string dFail = "U-Uh. O-Okay, have a nice day...";
-    string dPass = "Great! Fill out this form, please!";
+    GameObject dialoguePanel, questionPanel, q4Panel, playerController, clipboard;
+    Text dialogue, question, answer1, answer2, q4, a1, a2, a3, a4;
+    Animator animator;
+    Button b1, b2, qb1, qb2, qb3, qb4;
 
     void Start() {
-        playerController = GameObject.Find("FPSController");
 
-        dialoguePanel = GameObject.Find("PattyDialogue");
-        questionPanel = GameObject.Find("PattyDialogueAnswer");
+        DialogueUtility.playerController = GameObject.Find("FPSController");
+        DialogueUtility.dialoguePanel = GameObject.Find("PattyDialogue");
+        DialogueUtility.q4Panel = GameObject.Find("PattyDialogue4");
+        DialogueUtility.questionPanel = GameObject.Find("PattyDialogueAnswer");
 
-        clipboard = GameObject.Find("Clipboard");
+        DialogueUtility.clipboard = GameObject.Find("Clipboard");
 
-        dialogue = dialoguePanel.GetComponent<Text>();
-        question = GameObject.Find("Question").GetComponent<Text>();
-        b1 = GameObject.Find("Answer1").GetComponent<Button>();
-        b2 = GameObject.Find("Answer2").GetComponent<Button>();
+        DialogueUtility.dialogue = DialogueUtility.dialoguePanel.GetComponent<Text>();
+        DialogueUtility.question = GameObject.Find("Question").GetComponent<Text>();
+        DialogueUtility.q4 = GameObject.Find("Q4").GetComponent<Text>();
 
-        answer1 = GameObject.Find("TextAnswer1").GetComponent<Text>();
-        answer2 = GameObject.Find("TextAnswer2").GetComponent<Text>();
+        DialogueUtility.b1 = GameObject.Find("Answer1").GetComponent<Button>();
+        DialogueUtility.b2 = GameObject.Find("Answer2").GetComponent<Button>();
+        DialogueUtility.qb1 = GameObject.Find("A1").GetComponent<Button>();
+        DialogueUtility.qb2 = GameObject.Find("A2").GetComponent<Button>();
+        DialogueUtility.qb3 = GameObject.Find("A3").GetComponent<Button>();
+        DialogueUtility.qb4 = GameObject.Find("A4").GetComponent<Button>();
 
-        questionPanel.SetActive(false);
-        dialoguePanel.SetActive(false);
+        animator = GameObject.Find("Canvas").GetComponent<Animator>();
+        DialogueUtility.b1.onClick.AddListener(AListener);
+        DialogueUtility.b2.onClick.AddListener(BListener);
 
+        DialogueUtility.qb1.onClick.AddListener(AListener);
+        DialogueUtility.qb2.onClick.AddListener(BListener);
+        DialogueUtility.qb3.onClick.AddListener(CListener);
+        DialogueUtility.qb4.onClick.AddListener(DListener);
+
+        DialogueUtility.answer1 = GameObject.Find("TextAnswer1").GetComponent<Text>();
+        DialogueUtility.answer2 = GameObject.Find("TextAnswer2").GetComponent<Text>();
+        DialogueUtility.a1 = GameObject.Find("TextA1").GetComponent<Text>();
+        DialogueUtility.a2 = GameObject.Find("TextA2").GetComponent<Text>();
+        DialogueUtility.a3 = GameObject.Find("TextA3").GetComponent<Text>();
+        DialogueUtility.a4 = GameObject.Find("TextA4").GetComponent<Text>();
+
+        DialogueUtility.questionPanel.SetActive(false);
+        DialogueUtility.dialoguePanel.SetActive(false);
+        DialogueUtility.q4Panel.SetActive(false);
+        DialogueUtility.dialogueController = gameObject;
         gameObject.SetActive(false);
 
     }
 
     void Update() {
-        if (exit && Input.GetMouseButtonDown(0)) {
-            questionPanel.SetActive(false);
-            dialoguePanel.SetActive(false);
-
-            exit1 = false;
-            exit = false;
-            if (signup) {
-
-            } else {
-                gameObject.SetActive(false);
-                playerController.GetComponent<FirstPersonController>().enabled = true;
-            }
-        }
-        if (exit1) {
-            exit1 = false;
-            exit = true;
-        }
     }
 
-    public void TriggerIntro() {
-        b1.onClick.AddListener(SignIn);
-        b2.onClick.AddListener(SignUp);
-        SetDialogue(qIntro);
+    public void AListener()
+    {
+        Debug.Log("A");
+        animator.SetTrigger("Click");
+        animator.SetTrigger("OptA");
     }
 
-    private void SignIn() {
-        Debug.Log("Sign in");
+    public void BListener()
+    {
+        Debug.Log("B");
+        animator.SetTrigger("Click");
+        animator.SetTrigger("OptB");
     }
 
-    private void SignUp() {
-        RemoveButtonListeners();
-        b1.onClick.AddListener(SignUpPass);
-        b2.onClick.AddListener(SignUpFail);
-        SetDialogue(qIntroFail);
+    public void CListener()
+    {
+        Debug.Log("C");
+        animator.SetTrigger("Click");
+        animator.SetTrigger("OptC");
     }
 
-    private void SignUpPass() {
-        RemoveButtonListeners();
-        SetDialogue(dPass);
-        
-        //clipboard.transform.LookAt(transform);
-        exit1 = true;
-        signup = true;
-
+    public void DListener()
+    {
+        Debug.Log("D");
+        animator.SetTrigger("Click");
+        animator.SetTrigger("OptD");
     }
-
-    private void SignUpFail() {
-        RemoveButtonListeners();
-        SetDialogue(dFail);
-        exit1 = true;
-    }
-
-    private void RemoveButtonListeners() {
-        b1.onClick.RemoveAllListeners();
-        b2.onClick.RemoveAllListeners();
-    }
-
-    private void SetDialogue(string dialogue) {
-        questionPanel.SetActive(false);
-        dialoguePanel.SetActive(true);
-        this.dialogue.text = dialogue;
-    }
-
-    private void SetDialogue(string[] pack) {
-        questionPanel.SetActive(true);
-        dialoguePanel.SetActive(false);
-        this.question.text = pack[0];
-        this.answer1.text = pack[1];
-        this.answer2.text = pack[2];
-    }
-    
 }

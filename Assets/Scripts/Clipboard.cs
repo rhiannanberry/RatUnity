@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Clipboard : MonoBehaviour {
+    public GameObject signUpPanel, signInPanel, RatSightingPanel;
+
     Transform player;
     Vector3 homePosition;
     Quaternion homeRotation;
@@ -23,11 +25,12 @@ public class Clipboard : MonoBehaviour {
         }
 	}
 
-    public void PickUpClipboard(GameObject holder) {
+    //choice 0 = sign up, 1 = sign in, 2 = rat sighting
+    public void PickUpClipboard(GameObject holder, int choice) {
         Ray ray = Camera.main.GetComponent<CameraPointer>().getRay();
         Vector3 forward = holder.transform.forward;
         Quaternion rotation = holder.transform.rotation;
-
+        SetContext(choice);
         transform.position = ray.GetPoint(0.5f);
         isLookAt = true;
     }
@@ -36,5 +39,28 @@ public class Clipboard : MonoBehaviour {
         isLookAt = false;
         transform.position = homePosition;
         transform.rotation = homeRotation;
+        signUpPanel.SetActive(false);
+        signInPanel.SetActive(false);
+        RatSightingPanel.SetActive(false);
+
+
+
+    }
+
+    private void SetContext(int choice)
+    {
+        if (choice == 0)
+        {
+            signUpPanel.SetActive(true);
+        } else if (choice == 1)
+        {
+            signInPanel.SetActive(true);
+        } else if (choice == 2)
+        {
+            RatSightingPanel.SetActive(true);
+        } else
+        {
+            //date range panel
+        }
     }
 }

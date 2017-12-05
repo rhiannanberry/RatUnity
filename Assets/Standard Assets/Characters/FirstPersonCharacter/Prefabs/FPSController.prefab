@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 11400000}
   - component: {fileID: 5400000}
   - component: {fileID: 8200000}
-  - component: {fileID: 114483552396048868}
+  - component: {fileID: 114399691580611820}
   m_Layer: 0
   m_Name: FPSController
   m_TagString: Untagged
@@ -340,7 +340,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
---- !u!114 &114483552396048868
+--- !u!114 &114399691580611820
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pattyTransform: {fileID: 0}
-  range: 2
+  range: 3
   pattySpace: {fileID: 0}
   dialogueController: {fileID: 0}
 --- !u!114 &114798873276094492
