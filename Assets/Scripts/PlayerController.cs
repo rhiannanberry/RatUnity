@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 
 public class PlayerController : MonoBehaviour {
+    public GameObject MapPrefab;
     public Transform pattyTransform;
     public float range = 3;
     private bool helpOn = false;
@@ -29,5 +30,12 @@ public class PlayerController : MonoBehaviour {
 
     private bool CheckDistance(Transform other) {
         return Vector3.Distance(transform.position, other.position) < range;
+    }
+
+    public void CreateMap() {
+        Instantiate(MapPrefab);
+    }
+    public void SetDateRange() {
+        DialogueUtility.SetDateRange();
     }
 }

@@ -18,8 +18,7 @@ public class SetRangeClipboard : StateMachineBehaviour {
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        DialogueUtility.fromDate = DialogueUtility.dateRangePanel.transform.GetChild(3).GetComponent<DatePicker_DateRange>().FromDate;
-        DialogueUtility.toDate = DialogueUtility.dateRangePanel.transform.GetChild(3).GetComponent<DatePicker_DateRange>().ToDate;
+        DialogueUtility.SetMap();
         DialogueUtility.ReEnterDialogue();
         DialogueUtility.dateRangePanel.SetActive(false);
     }

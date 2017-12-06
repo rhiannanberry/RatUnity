@@ -44,6 +44,8 @@ public class ElevatorDoors : MonoBehaviour {
 
     public void MoveRooms(int dest)
     {
+        mapRoomObjs = GameObject.FindGameObjectsWithTag("MapRoom");
+
         this.dest = dest;
         CloseDoors();
 

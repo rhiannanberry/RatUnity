@@ -8,8 +8,9 @@ public class Map : MonoBehaviour {
     // Use this for initialization
     private List<Rat> rats;
 	IEnumerator Start () {
-        Debug.Log("Hi0");
-        WWW url = new WWW("https://ratapp-af7cf.firebaseio.com/rat+sightings.json?orderBy=%22Created+Date%22&limitToFirst=3");
+        WWW url = MarkersUtility.BuildURL();
+        Debug.Log(url);
+            //new WWW("https://ratapp-af7cf.firebaseio.com/rat+sightings.json?orderBy=%22Created+Date%22&limitToFirst=3");
 
         yield return url;
         Debug.Log(url.text);
@@ -17,6 +18,7 @@ public class Map : MonoBehaviour {
         Debug.Log(rats.Count);
         foreach (Rat rat in rats)
         {
+
             Debug.Log(rat.latitude);
             GameObject temp = Instantiate(MarkerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
             temp.transform.SetParent(transform, false);
