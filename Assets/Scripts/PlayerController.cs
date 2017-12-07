@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject dialogueController;
 	// Use this for initialization
 	void Start () {
+        SaveLoad.Load();
         pattySpace.GetComponent<CanvasGroup>().alpha = 0;
         reticle = GameObject.Find("Reticle");
     }

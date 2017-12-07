@@ -8,6 +8,11 @@ public class Rat {
     public DateTime date;
     public float latitude, longitude;
 
+    public Rat()
+    {
+
+
+    }
     public Rat(string key)
     {
         this.key = key;

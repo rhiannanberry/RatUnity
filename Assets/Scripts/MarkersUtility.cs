@@ -52,6 +52,13 @@ public static class MarkersUtility {
         DateTime newDate = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
         return newDate.AddMilliseconds(date).ToLocalTime();
     }
+
+    public static string DateTimeNowToUnix()
+    {
+        System.DateTime epochStart = new System.DateTime(1970, 1, 1, 0, 0, 0, System.DateTimeKind.Utc);
+        int cur_time = (int)(System.DateTime.UtcNow - epochStart).TotalSeconds;
+        return cur_time.ToString() + "000";
+    }
 }
 
 /*
