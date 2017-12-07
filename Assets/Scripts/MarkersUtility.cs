@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class MarkersUtility {
-
+    public static DateTime startDate, endDate;
     public static WWW BuildURL() {
         DateTime from = DialogueUtility.fromDate;
         DateTime to = DialogueUtility.toDate;
@@ -13,6 +13,9 @@ public static class MarkersUtility {
         string beginning = "https://ratapp-af7cf.firebaseio.com/rat+sightings.json?orderBy=%22Created+Date%22&startAt=%22";
         string start = ((TimeZoneInfo.ConvertTimeToUtc(from) - new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc)).TotalSeconds).ToString() + "000";
         string end = ((TimeZoneInfo.ConvertTimeToUtc(to) - new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc)).TotalSeconds).ToString() + "000";
+
+        startDate = UnixToDateTime(start);
+        endDate = UnixToDateTime(end);
         beginning += start + "%22&endAt=%22" + end + "%22";
         Debug.Log(beginning);
 
@@ -30,11 +33,10 @@ public static class MarkersUtility {
             string key = (string)j.keys[i];
             JSONObject jMark = (JSONObject)j.list[i];
             Rat tempRat = new Rat(key);
-            Debug.Log(jMark);
             try {
                 float.TryParse(jMark["Latitude"].str, out tempRat.latitude);
                 float.TryParse(jMark["Longitude"].str, out tempRat.longitude);
-                tempRat.date = (long)Convert.ToDouble(jMark["Created Date"].str); 
+                tempRat.SetDate((long)Convert.ToDouble(jMark["Created Date"].str)); 
 
                 mList.Add(tempRat);
             } catch (Exception e) {
@@ -44,9 +46,11 @@ public static class MarkersUtility {
         return mList;
     }
 
-    private static void AccessData(JSONObject j)
+    private static DateTime UnixToDateTime(string dateString)
     {
-        
+        long date = long.Parse(dateString);
+        DateTime newDate = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+        return newDate.AddMilliseconds(date).ToLocalTime();
     }
 }
 

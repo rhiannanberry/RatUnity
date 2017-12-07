@@ -33,6 +33,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void CreateMap() {
+        if (GameObject.Find("MapCanvas(Clone)") != null)
+        {
+            Destroy(GameObject.Find("MapCanvas(Clone)"));
+        }
         Instantiate(MapPrefab);
     }
     public void SetDateRange() {

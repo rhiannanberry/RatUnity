@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Rat {
     public string borough, city, zip, address, locationType, key;
-    public long date;
+    public DateTime date;
     public float latitude, longitude;
 
     public Rat(string key)
@@ -19,7 +20,8 @@ public class Rat {
         this.zip = zip;
         this.address = address;
         this.locationType = locationType;
-        this.date = date;
+        this.date = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+        this.date = this.date.AddMilliseconds(date).ToLocalTime();
         this.latitude = latitude;
         this.longitude = longitude;
     }
@@ -39,7 +41,8 @@ public class Rat {
     }
     public void SetDate(long date)
     {
-        this.date = date;
+        this.date = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+        this.date = this.date.AddMilliseconds(date).ToLocalTime();
     }
     public void SetZip(string zip)
     {
