@@ -31,7 +31,7 @@ GameObject:
   - component: {fileID: 2000000}
   - component: {fileID: 8100000}
   - component: {fileID: 12474086}
-  - component: {fileID: 114798873276094492}
+  - component: {fileID: 114407129020163006}
   m_Layer: 0
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
@@ -45,14 +45,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.87300724, z: 0, w: 0.48770735}
   m_LocalPosition: {x: -1.83, y: 2.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -121.62, z: 0}
 --- !u!4 &400002
 Transform:
   m_ObjectHideFlags: 1
@@ -351,11 +351,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e656dd484d6f524783376fafdadf7a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MapPrefab: {fileID: 1624739945554718, guid: d826ead8342739e4bb82c3f038aabef3, type: 2}
   pattyTransform: {fileID: 0}
   range: 3
   pattySpace: {fileID: 0}
   dialogueController: {fileID: 0}
---- !u!114 &114798873276094492
+--- !u!114 &114407129020163006
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -366,3 +367,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93b0b43d9543b2d4e91ec34bfbac81ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toolTip: {fileID: 0}
+  dialogueController: {fileID: 0}

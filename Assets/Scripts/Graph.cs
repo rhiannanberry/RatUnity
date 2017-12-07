@@ -84,9 +84,10 @@ public class Graph : MonoBehaviour {
             dateLabel.GetComponent<Text>().text = currStart.ToShortDateString() + " - " + currEnd.ToShortDateString();
             Debug.Log(totalCnt);
             
-            float delta = (sizes[i] * 1.0f / totalCnt) * height;
+            float delta = ((sizes[i] * 1.0f / totalCnt) * height)-1180;
             Debug.Log(delta);
-            current.GetComponent<RectTransform>().offsetMax = new Vector2(current.GetComponent<RectTransform>().offsetMax.x, -1*delta);
+            delta = (delta == 0) ? -1180 : delta;
+            current.GetComponent<RectTransform>().offsetMax = new Vector2(current.GetComponent<RectTransform>().offsetMax.x, delta);
             currStart = currEnd;
             currEnd = currStart.AddDays(barSize);
         }
